@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ quote.quote }}
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ quote.quote }}</h2>
+
+<p>{{ quote.author }}</p>
+
+<p>{{ quote.year }}</p>
+
+<form method="GET" action="{{ url_for('edit', quote_id = quote.id) }}">
+    <button type="submit">Редактировать</button>
+</form>
+
+<form method="POST" action="{{ url_for('delete', quote_id = quote.id) }}">
+    <button type="submit">Удалить</button>
+</form>
+
+<a href="{{ url_for('index') }}">Назад</a>
+
+{% endblock %}

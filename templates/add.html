@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+Добавить цитату
+{% endblock %}
+
+{% block content %}
+
+<h2>Новая цитата</h2>
+
+{% for error in errors|default([]) %}
+    <p>{{ error }}</p>
+{% endfor %}
+
+<form method="POST">
+
+    <p>
+        <label>Цитата </label>
+        <input type="text" name="quote" value="{{ quote|default('') }}">
+    </p>
+
+    <p>
+        <label>Автор </label>
+        <input type="text" name="author" value="{{ author|default('') }}">
+    </p>
+
+    <p>
+        <label>Год </label>
+        <input type="number" name="year" value="{{ year|default('') }}">
+    </p>
+
+    <button type="submit">Сохранить</button>
+
+</form>
+
+{% endblock %}

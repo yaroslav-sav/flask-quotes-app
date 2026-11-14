@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Favorite quotes{% endblock %}</title>
+    <style>
+        body {
+            background: #F9F6F0;
+            font-family: Helvetica;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #3D3B38;
+        }
+
+        h2 {
+            color: #1F2937;
+        }
+
+        p {
+            color: #361C04;
+        }
+
+        a {
+            color: #8B4513;
+            font-weight: 600;
+        }
+
+        button {
+            background: #8B4513;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Favorite quotes</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Главная</a>
+            <a href="{{ url_for('add_quote') }}">Добавить идею</a>
+            <a href="{{ url_for('statistics') }}">Статистика</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Редактирование{% endblock %}
+
+{% block content %}
+
+{% for error in errors|default([]) %}
+    <p>{{ error }}</p>
+{% endfor %}
+
+<form method="POST">
+
+    <p>
+        <label>Цитата</label>
+        <input type="text" name="quote" value="{{ quote }}">
+    </p>
+
+    <p>
+        <label>Автор</label>
+        <input type="text" name="author" value="{{ author }}">
+    </p>
+
+    <p>
+        <label>Год</label>
+        <input type="number" name="year" value="{{ year }}">
+    </p>
+
+    <button type="submit">Сохранить изменение</button>
+
+</form>
+
+{% endblock %}

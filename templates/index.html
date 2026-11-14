@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Все цитаты{% endblock %}
+
+{% block content %}
+    <h2>Список цитат</h2>
+
+    {% for quote in quotes %}
+        <div>
+            <p>{{ quote.quote }}</p>
+
+            {% if quote.author %}
+                <p>{{ quote.author }}</p>
+            {% else %}
+                <p>автор неизвестен</p>
+            {% endif %}
+
+            {% if quote.year %}
+                <p>{{ quote.year }}</p>
+            {% else %}
+                <p>год неизвестен</p>
+            {% endif %}
+
+            <a href="{{ url_for('detail', quote_id=quote.id) }}">Подробнее</a>
+        </div>
+    {% else %}
+        <p>Пока цитат нет.</p>
+    {% endfor %}
+
+{% endblock %}
